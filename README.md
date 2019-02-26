@@ -46,3 +46,7 @@ STORAGE_HOST=<HOST_WHERE_POSTGRES_IS_RUNNING>
 STORAGE_URL=postgres://postgres@$STORAGE_HOST:5432/
 STUDY_NAME=`.local/bin/optuna create-study --storage $STORAGE_URL`
 ```
+
+```console
+mpirun -np 2 -bind-to none -map-by slot -- python tensorflow_mnist_eager_optuna.py $STUDY_NAME $STORAGE_URL
+```
