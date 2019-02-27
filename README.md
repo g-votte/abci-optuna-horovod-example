@@ -1,6 +1,6 @@
 # ABCI Optuna Examples
 
-This is an tutorial material to use Optuna in the [ABCI](https://abci.ai/) infrastructure (unofficial).
+This is a tutorial material to use Optuna in the [ABCI](https://abci.ai/) infrastructure (unofficial).
 
 This tutorial describes:
 
