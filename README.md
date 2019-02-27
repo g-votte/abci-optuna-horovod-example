@@ -1,3 +1,13 @@
+# ABCI Optuna Examples
+
+This is an tutorial material to use Optuna in the [ABCI](https://abci.ai/) infrastructure (unofficial).
+
+This tutorial describes:
+
+- How to launch Optuna storage on an interactive node.
+- How to parallelize single node ML training.
+- How to parallelize multi-node, MPI-based ML training.
+
 ## Launch PostgreSQL in ABCI
 
 ```console
@@ -34,7 +44,7 @@ pip install --user mpi4py psycopg2-binary
 pip install --user -U horovod  
 ```
 
-You need to install a developing branch of Optuna, because the [MPIStudy](https://github.com/pfnet/optuna/blob/horovod-examples/optuna/integration/mpi.py#L46) class has not been merged to the master.
+To deal with MPI-based learning, you need to install a developing branch of Optuna, because the [MPIStudy](https://github.com/pfnet/optuna/blob/horovod-examples/optuna/integration/mpi.py#L46) class has not been merged to the master.
 
 ```console
 pip uninstall optuna  # If you've already installed Optuna.
@@ -117,3 +127,13 @@ To run the MPI example:
 ```console
 mpirun -np 2 -bind-to none -map-by slot -- python tensorflow_mnist_eager_optuna.py $STUDY_NAME $STORAGE_URL
 ```
+
+You can list the history of optimization as follows.
+```console
+python print_study_history.py $STUDY_NAME $STORAGE_URL
+```
+
+## See Also
+
+- [Optuna Tutorial](https://optuna.readthedocs.io/en/latest/tutorial/)
+- [Optuna Examples](https://github.com/pfnet/optuna/tree/master/examples)
