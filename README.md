@@ -16,6 +16,8 @@ GROUP=<YOUR_GROUP>
 qrsh -g $GROUP -l rt_C.small=1 -l h_rt=12:00:00
 module load singularity/2.6.1
 singularity build postgres.img docker://postgres
+
+mkdir postgres_data
 singularity run -B postgres_data:/var/lib/postgresql/data postgres.img /docker-entrypoint.sh postgres
 ```
 
